@@ -54,7 +54,7 @@ const variants = [
     title: 'LQIP',
     description: html`
       <p>
-        Generated with <a href="https://github.com/zouhir/lqip-cli">lqip-cli</a>
+        Generated with <a href="https://github.com/zouhir/lqip-cli">lqip-cli</a>. This preview is blurred with a filter of 20px.
       </p>
     `,
     resultFileType: 'jpg',
@@ -69,7 +69,7 @@ const variants = [
     title: 'LQIP custom',
     description: html`
       <p>
-        32px thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a>, minified with <a href="https://github.com/mozilla/mozjpeg">mozjpeg</a>
+        32px thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a>, minified with <a href="https://github.com/mozilla/mozjpeg">mozjpeg</a>. This preview is blurred with a filter of 20px.
       </p>
     `,
     resultFileType: 'jpg',
@@ -88,7 +88,7 @@ const variants = [
     title: 'LQIP modern webp',
     description: html`
       <p>
-        60px webp thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a> and an output quality of 20
+        60px webp thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a> and an output quality of 20. This preview is blurred with a filter of 20px.
       </p>
     `,
     resultFileType: 'webp',
@@ -104,7 +104,7 @@ const variants = [
     title: 'LQIP modern jpeg',
     description: html`
       <p>
-        60px jpeg thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a> and an output quality of 20
+        60px jpeg thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a> and an output quality of 20. This preview is blurred with a filter of 20px.
       </p>
     `,
     resultFileType: 'jpg',
