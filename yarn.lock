@@ -8506,10 +8506,10 @@ lpad-align@^1.0.1:
     longest "^1.0.0"
     meow "^3.3.0"
 
-lqip-modern@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/lqip-modern/-/lqip-modern-0.1.0.tgz#d481c14c1606da19ddeccd5f53a66bdcdbe0c5a8"
-  integrity sha512-zRJBOQflt7KLOu0kIzysVQRp8BzPfHV6/KPUdRgn5G63gofj5R+MHOqivNeR+MEfcMb8BKI6rt4VYolCqHiNpA==
+lqip-modern@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/lqip-modern/-/lqip-modern-1.1.0.tgz#64ed81a5fe8e6a2612c086c3226923e4f7e42d34"
+  integrity sha512-ngTo+dQbkawFj5MNjpRRRm2ZFCudL49cIpImV+7CyH3ng4PEtnuKlLgPaMXdwuO4fdTJ+Fy4C2cGu6WX7st2rg==
   dependencies:
     p-map "^4.0.0"
     sharp "^0.25.4"

@@ -8,7 +8,7 @@ const execa = require('execa')
 const lqip = require('lqip')
 const lqipModern = require('lqip-modern')
 const sqip = require('sqip').default
-const sqipLegacy = require('sqip-legacy')
+// const sqipLegacy = require('sqip-legacy')
 const htm = require('htm')
 const vhtml = require('vhtml')
 const sharp = require('sharp')
@@ -64,6 +64,7 @@ const variants = [
       return result
     }
   },
+  /*
   {
     name: 'lqip-custom',
     title: 'LQIP custom',
@@ -83,33 +84,136 @@ const variants = [
       return optimizedThumbnail.toString()
     }
   },
+  */
   {
-    name: 'lqip-modern-webp',
-    title: 'LQIP modern webp',
+    name: 'lqip-modern-webp-8',
+    title: 'LQIP modern webp @ 8px',
     description: html`
       <p>
-        60px webp thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a> and an output quality of 20. This preview is blurred with a filter of 20px.
+        8px webp thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a> and an output quality of 20. This preview is blurred with a filter of 20px. (lqip-modern default settings)
       </p>
     `,
     resultFileType: 'webp',
-    selected: true,
+    config: {
+      outputFormat: 'webp',
+      resize: 8
+    },
     task: async ({ path, dist }) => {
-      const result = await lqipModern(path)
+      const result = await lqipModern(path, {
+        outputFormat: 'webp',
+        resize: 8
+      })
       await writeImage({ dataURI: result.metadata.dataURIBase64, dist })
       return result.metadata.dataURIBase64
     }
   },
   {
-    name: 'lqip-modern-jpeg',
-    title: 'LQIP modern jpeg',
+    name: 'lqip-modern-jpeg-8',
+    title: 'LQIP modern jpeg @ 8px',
     description: html`
       <p>
-        60px jpeg thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a> and an output quality of 20. This preview is blurred with a filter of 20px.
+        8px jpeg thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a> and an output quality of 20. This preview is blurred with a filter of 20px.
       </p>
     `,
+    config: {
+      outputFormat: 'jpeg',
+      resize: 8
+    },
     resultFileType: 'jpg',
     task: async ({ path, dist }) => {
-      const result = await lqipModern(path, { outputFormat: 'jpeg' })
+      const result = await lqipModern(path, {
+        outputFormat: 'jpeg',
+        resize: 8
+      })
+      await writeImage({ dataURI: result.metadata.dataURIBase64, dist })
+      return result.metadata.dataURIBase64
+    }
+  },
+  {
+    name: 'lqip-modern-webp-16',
+    title: 'LQIP modern webp @ 16px',
+    description: html`
+      <p>
+        16px webp thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a> and an output quality of 20. This preview is blurred with a filter of 20px. (lqip-modern default settings)
+      </p>
+    `,
+    resultFileType: 'webp',
+    config: {
+      outputFormat: 'webp',
+      resize: 16
+    },
+    selected: true,
+    task: async ({ path, dist }) => {
+      const result = await lqipModern(path, {
+        outputFormat: 'webp',
+        resize: 16
+      })
+      await writeImage({ dataURI: result.metadata.dataURIBase64, dist })
+      return result.metadata.dataURIBase64
+    }
+  },
+  {
+    name: 'lqip-modern-jpeg-16',
+    title: 'LQIP modern jpeg @ 16px',
+    description: html`
+      <p>
+        16px jpeg thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a> and an output quality of 20. This preview is blurred with a filter of 20px.
+      </p>
+    `,
+    config: {
+      outputFormat: 'jpeg',
+      resize: 16
+    },
+    resultFileType: 'jpg',
+    task: async ({ path, dist }) => {
+      const result = await lqipModern(path, {
+        outputFormat: 'jpeg',
+        resize: 16
+      })
+      await writeImage({ dataURI: result.metadata.dataURIBase64, dist })
+      return result.metadata.dataURIBase64
+    }
+  },
+  {
+    name: 'lqip-modern-webp-32',
+    title: 'LQIP modern webp @ 32px',
+    description: html`
+      <p>
+        32px webp thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a> and an output quality of 20. This preview is blurred with a filter of 20px.
+      </p>
+    `,
+    resultFileType: 'webp',
+    config: {
+      outputFormat: 'webp',
+      resize: 32
+    },
+    task: async ({ path, dist }) => {
+      const result = await lqipModern(path, {
+        outputFormat: 'webp',
+        resize: 32
+      })
+      await writeImage({ dataURI: result.metadata.dataURIBase64, dist })
+      return result.metadata.dataURIBase64
+    }
+  },
+  {
+    name: 'lqip-modern-jpeg-32',
+    title: 'LQIP modern jpeg @ 32px',
+    description: html`
+      <p>
+        32px jpeg thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a> and an output quality of 20. This preview is blurred with a filter of 20px.
+      </p>
+    `,
+    config: {
+      outputFormat: 'jpeg',
+      resize: 32
+    },
+    resultFileType: 'jpg',
+    task: async ({ path, dist }) => {
+      const result = await lqipModern(path, {
+        outputFormat: 'jpeg',
+        resize: 32
+      })
       await writeImage({ dataURI: result.metadata.dataURIBase64, dist })
       return result.metadata.dataURIBase64
     }
