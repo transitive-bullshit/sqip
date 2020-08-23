@@ -6,6 +6,7 @@ const dataURIToBuffer = require('data-uri-to-buffer')
 const mozjpeg = require('mozjpeg')
 const execa = require('execa')
 const lqip = require('lqip')
+const lqipModern = require('lqip-modern')
 const sqip = require('sqip').default
 const sqipLegacy = require('sqip-legacy')
 const htm = require('htm')
@@ -68,9 +69,7 @@ const variants = [
     title: 'LQIP custom',
     description: html`
       <p>
-        32px thumbnail generated with
-        <a href="https://sharp.dimens.io/en/stable/">sharp</a>, minified with
-        <a href="https://github.com/mozilla/mozjpeg">mozjpeg</a>
+        32px thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a>, minified with <a href="https://github.com/mozilla/mozjpeg">mozjpeg</a>
       </p>
     `,
     resultFileType: 'jpg',
@@ -84,6 +83,38 @@ const variants = [
       return optimizedThumbnail.toString()
     }
   },
+  {
+    name: 'lqip-modern-webp',
+    title: 'LQIP modern webp',
+    description: html`
+      <p>
+        60px webp thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a> and an output quality of 20
+      </p>
+    `,
+    resultFileType: 'webp',
+    selected: true,
+    task: async ({ path, dist }) => {
+      const result = await lqipModern(path)
+      await writeImage({ dataURI: result.metadata.dataURIBase64, dist })
+      return result.metadata.dataURIBase64
+    }
+  },
+  {
+    name: 'lqip-modern-jpeg',
+    title: 'LQIP modern jpeg',
+    description: html`
+      <p>
+        60px jpeg thumbnail generated with <a href="https://sharp.dimens.io/en/stable/">sharp</a> and an output quality of 20
+      </p>
+    `,
+    resultFileType: 'jpg',
+    task: async ({ path, dist }) => {
+      const result = await lqipModern(path, { outputFormat: 'jpeg' })
+      await writeImage({ dataURI: result.metadata.dataURIBase64, dist })
+      return result.metadata.dataURIBase64
+    }
+  },
+  /*
   {
     name: 'sqip-legacy',
     title: 'SQIP v0.3.3',
@@ -99,6 +130,7 @@ const variants = [
       return dataURI
     }
   },
+  */
   {
     name: 'sqip',
     title: 'SQIP default',
@@ -115,6 +147,7 @@ const variants = [
       return dataURI
     }
   },
+  /*
   {
     name: 'sqip-pixels',
     title: 'SQIP pixels',
@@ -179,6 +212,7 @@ const variants = [
       return dataURI
     }
   },
+  */
   {
     name: 'sqip-potrace',
     title: 'SQIP potrace',
@@ -207,6 +241,7 @@ const variants = [
       return dataURI
     }
   },
+  /*
   {
     name: 'sqip-potrace-posterize',
     title: 'SQIP potrace posterize',
@@ -243,6 +278,7 @@ const variants = [
       return dataURI
     }
   }
+  */
 ]
 
 module.exports = {

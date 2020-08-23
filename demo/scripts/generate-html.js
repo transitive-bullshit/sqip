@@ -35,7 +35,15 @@ function VariantResult({
             <img class="preview" alt="${name}" src="${url}" height="auto" />
           `
         : html`
-            <div class="preview-wrapper" style="${wrapperStyle}">
+            <div 
+              class="${[
+                'preview-wrapper',
+                variantName.indexOf('lqip') !== -1 && 'preview-wrapper-lqip',
+              ]
+                .filter(Boolean)
+                .join(' ')}"
+              style="${wrapperStyle}"
+            >
               <img
                 class="${[
                   'preview',
@@ -141,12 +149,12 @@ const Row = ({ image }) => {
     <table>
       <thead>
         <tr>
-          ${variants.map(({ title }) => {
-            return html` <th>${title}</th> `
+          ${variants.map(({ title, selected }) => {
+            return html` <th class="${selected ? 'selected' : ''}">${title}</th> `
           })}
         </tr>
         <tr>
-          ${variants.map(({ description, config }, i) => {
+          ${variants.map(({ description, selected, config }, i) => {
             const compressedSize = compressedSizes[i]
             const originalSize = compressedSizes[0]
             const averageBytes = Math.round(compressedSize / images.length)
@@ -155,7 +163,7 @@ const Row = ({ image }) => {
               100
             ).toFixed(2)
             return html`
-              <td>
+              <td class="${selected ? 'selected' : ''}">
                 <div class="description">
                   ${description}
                   <p class="processing-time">
