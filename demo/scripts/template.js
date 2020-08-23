@@ -111,38 +111,28 @@ module.exports = (content) => `
   </head>
   <body>
     <h1>
-      SQIP Demo${' '}
-      <a href="https://github.com/axe312ger/sqip">
+      LQIP Comparison Demo${' '}
+
+      <a href="https://github.com/transitive-bullshit/lqip-modern">
         <img src="./assets/github.svg" width="32" />
       </a>
     </h1>
+
     <p>
-      SQIP will generate SVG based previews of images. They can be used as
-      a lazy-loading image preview, a video thumbnail or an artistic
-      element for your project.
+      LQIP (Low Quality Image Placeholders) generates efficient placeholder previews of images with the main goal of improving the perceived loading time of image heavy websites.
     </p>
+
     <p>
-      Compare the new SQIP version with the old SQIP version, LQIP and a
-      300px thumbnail
+      This demo compares various LQIP techniques. It has been generated with a <a href="https://github.com/transitive-bullshit/sqip/tree/feature/lqip-modern/demo">fork</a> of <a href="https://github.com/axe312ger/sqip">sqip's excellent demo</a>.
     </p>
+
     <p>
-      <a href="https://github.com/axe312ger/sqip">
-        Learn more about SQIP
+      <a href="https://github.com/transitive-bullshit/lqip-modern">
+        Learn more about this project.
       </a>
     </p>
+
     ${content}
-    <script type="text/javascript">
-      var _paq = window._paq || [];
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-        var u="//matomo.axe312.de/";
-        _paq.push(['setTrackerUrl', u+'matomo.php']);
-        _paq.push(['setSiteId', '1']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-      })();
-    </script>
   </body>
 </html>
 `
